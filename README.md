@@ -26,6 +26,8 @@ Dieses Projekt wurde entwickelt, um DevOps-Workflows mit npm, Jenkins und GitHub
     -   Audit (Prüfen)
 2.  **GitHub Actions**: Erstellen Sie eine `.github/workflows/ci.yml` Datei, die bei Push und Pull Requests auf `main` ausgelöst wird und die gleichen Schritte wie oben ausführt.
 
+> **Wichtig**: Vergessen Sie nicht, den Workspace im `post`-Abschnitt der Jenkins-Pipeline zu bereinigen!
+
 ## Übungen
 
 Siehe `exercises/AUDIT_UPDATE.md` für Anweisungen zum Üben von Paket-Audits und -Updates.

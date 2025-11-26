@@ -6,11 +6,11 @@ pipeline {
     }
 
     stages {
-        //stage("Cleanup"){ 
-        //    steps{ 
-        //        sh "rm -rf ./*"
-        //    }       
-        //}
+        stage("Cleanup"){ 
+            steps{ 
+                sh "rm -rf ./*"
+            }       
+        }
 
         stage('Install') {
             steps {
@@ -63,12 +63,19 @@ pipeline {
             }
         }
 
-        //stage('ggf Major Versionen aktualisieren'){
-        //    steps{
-        //        // 
-        //        sh 'npm-check-updates'
-        //    }
-        //}
+        stage('ggf Major Versionen aktualisieren'){
+            steps{
+                // 
+                sh 'npm-check-updates'
+            }
+        }
+
+        stage('Spezifisch typescript aktualisieren'){
+            steps{
+                // 
+                sh 'npm install typescript@latest'
+            }
+        }
     }
 
     post {

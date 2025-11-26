@@ -63,16 +63,9 @@ pipeline {
             }
         }
 
-        stage('ggf Major Versionen aktualisieren'){
-            steps{
-                // 
-                sh 'npm-check-updates'
-            }
-        }
-
         stage('Spezifisch typescript aktualisieren'){
             steps{
-                // 
+                // TODO: Über alle dependencies rüberlaufen mit for schleife
                 sh 'npm install typescript@latest'
             }
         }

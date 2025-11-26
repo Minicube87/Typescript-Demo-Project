@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Hol Repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Setze Node-Version
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Installiere Dependencies
+      - name: Install
+        run: npm install
+
+      # Bau das Projekt
+      - name: Build
+        run: npm run build
+
+      # Führe Tests aus
+      - name: Test
+        run: npm test
+
+      # Sicherheitsanalyse
+      - name: Audit
+        run: npm audit

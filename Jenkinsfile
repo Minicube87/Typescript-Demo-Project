@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools{
+        nodejs "Node20"
+    }
+
     stages {
         stage('Install') {
             steps {
@@ -33,8 +37,7 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline finished (always).'
-            archiveArtifacts artifacts: 'audit-report.json', allowEmptyArchive: true
+            echo '-----------------------'
         }
         success {
             echo 'Build successful'
